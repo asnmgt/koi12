@@ -15,3 +15,6 @@ This project acknowledges the use of open source software:
 ## License Notes
 - **MIT (KOI)** requires that copyright and license text remain intact in any redistributed copies.
 - **AGPL-3.0 (Inbox Zero)** requires that source code (including modifications) be provided to users who interact with this software over a network. By hosting KoiMgr, we comply by publishing the complete corresponding source in this repository.
+
+### Project Leadership
+- **Andrew Ngeseyan** — Founder of KoiMgr (KOI12), lead developer and architect
