@@ -73,3 +73,13 @@ docker-compose.override.yml
 
 # Private submodule configuration (generated at build time)
 .gitmodules
+
+# ignore local backups and bundles
+*.zip
+*.backup
+
+
+# ignore local backups and bundles
+*.zip
+*.backup
+
