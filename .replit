@@ -1,0 +1,8 @@
+modules = ["nodejs-20", "python-3.11"]
+
+[nix]
+packages = ["openssh", "nano", "imagemagick6", "zip"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80

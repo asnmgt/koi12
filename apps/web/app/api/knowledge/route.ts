@@ -1,20 +1,18 @@
-import { NextResponse } from "next/server";
-import prisma from "@/utils/prisma";
-import { withEmailAccount } from "@/utils/middleware";
-import type { Knowledge } from "@prisma/client";
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { RID } from "rid-lib";
 
-export type GetKnowledgeResponse = {
-  items: Knowledge[];
-};
+export async function POST(req: NextRequest) {
+  const { title, content } = await req.json();
+  const rid = new RID("Knowledge", { title });
 
-export const GET = withEmailAccount(async (request) => {
-  const emailAccountId = request.auth.emailAccountId;
-  const items = await prisma.knowledge.findMany({
-    where: { emailAccountId },
-    orderBy: { updatedAt: "desc" },
+  const knowledge = await prisma.knowledge.create({
+    data: {
+      rid: rid.toString(),
+      title,
+      content,
+    },
   });
 
-  const result: GetKnowledgeResponse = { items };
-
-  return NextResponse.json(result);
-});
+  return NextResponse.json(knowledge);
+}
